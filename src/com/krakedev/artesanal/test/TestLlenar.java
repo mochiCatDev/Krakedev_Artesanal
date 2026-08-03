@@ -1,4 +1,5 @@
 package com.krakedev.artesanal.test;
+
 import com.krakedev.artesanal.Maquina;
 
 public class TestLlenar {
@@ -10,7 +11,7 @@ public class TestLlenar {
 		System.out.println("-> Llenar Maquina");
 		rubia.llenarMaquina();
 		rubia.imprimir();
-		
+
 		Maquina negra = new Maquina("Club", "Cerveza buena", 0.03);
 		System.out.println("========= MAQUINA NEGRA =========");
 		System.out.println("-> Estado Por Defecto");

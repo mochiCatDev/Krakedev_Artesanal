@@ -75,4 +75,13 @@ public class Maquina {
 	public void llenarMaquina() {
 		cantidadActual = capacidadMaxima - 100;
 	}
+	
+	public boolean recargarCerveza(double cantidad) {
+		if(cantidadActual + cantidad < capacidadMaxima - 100) {
+			cantidadActual += cantidad;
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
