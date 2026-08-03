@@ -81,11 +81,11 @@ public class Maquina {
 	// === MÉTODOS ===
 
 	public void llenarMaquina() {
-		cantidadActual = capacidadMaxima - 100;
+		cantidadActual = capacidadMaxima - 200;
 	}
 
 	public boolean recargarCerveza(double cantidad) {
-		if (cantidadActual + cantidad < capacidadMaxima - 100) {
+		if (cantidadActual + cantidad < capacidadMaxima - 200) {
 			cantidadActual += cantidad;
 			return true;
 		} else {

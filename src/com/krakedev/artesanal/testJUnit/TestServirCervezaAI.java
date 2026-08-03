@@ -23,8 +23,8 @@ public class TestServirCervezaAI {
         Maquina maquina = new Maquina("010", "IPA", "Cerveza artesanal amarga", 0.05, 5000.0);
         
         // Cargamos cerveza en la máquina usando los métodos disponibles
-        maquina.llenarMaquina(); // Capacidad actual pasa a ser 4900.0 (5000.0 - 100)
-        double cantidadInicial = maquina.getCantidadActual(); // 4900.0
+        maquina.llenarMaquina(); // Capacidad actual pasa a ser 4800.0 (5000.0 - 200)
+        double cantidadInicial = maquina.getCantidadActual(); // 4800.0
         
         double cantidadAServir = 500.0;
         double precioEsperado = cantidadAServir * maquina.getPrecioPorMl(); // 500.0 * 0.05 = 25.0
@@ -46,9 +46,9 @@ public class TestServirCervezaAI {
         // Arrange
         Maquina maquina = new Maquina("011", "Stout", "Cerveza negra", 0.08, 2000.0);
         
-        // Llenamos la máquina (queda con 1900.0 ml)[cite: 1]
+        // Llenamos la máquina (queda con 1900.0 ml)
         maquina.llenarMaquina(); 
-        double cantidadInicial = maquina.getCantidadActual(); // 1900.0[cite: 1]
+        double cantidadInicial = maquina.getCantidadActual(); // 1900.0
         
         // Intentamos servir más de lo disponible
         double cantidadAServir = 2500.0;
@@ -68,9 +68,9 @@ public class TestServirCervezaAI {
     @DisplayName("No debe servir nada si la máquina está vacía (cantidad actual es 0)")
     public void testServirCervezaMaquinaVacia() {
         // Arrange
-        // Al instanciar, la máquina inicia con cantidadActual = 0[cite: 1]
+        // Al instanciar, la máquina inicia con cantidadActual = 0
         Maquina maquina = new Maquina("014", "Red Ale", "Cerveza roja", 0.06, 3000.0);
-        double cantidadInicial = maquina.getCantidadActual(); // 0.0[cite: 1]
+        double cantidadInicial = maquina.getCantidadActual(); // 0.0
         
         double cantidadAServir = 300.0;
 
@@ -91,11 +91,11 @@ public class TestServirCervezaAI {
         // Arrange
         Maquina maquina = new Maquina("015", "Golden", "Cerveza rubia", 0.04, 1000.0);
         
-        // Agregamos cerveza utilizando recargarCerveza[cite: 1]
-        maquina.recargarCerveza(500.0); // La cantidad disponible actual es 500.0[cite: 1]
+        // Agregamos cerveza utilizando recargarCerveza
+        maquina.recargarCerveza(500.0); // La cantidad disponible actual es 500.0
         
         double cantidadAServir = 500.0; // Servir exactamente la totalidad disponible
-        double precioEsperado = cantidadAServir * maquina.getPrecioPorMl(); // 500.0 * 0.04 = 20.0[cite: 1]
+        double precioEsperado = cantidadAServir * maquina.getPrecioPorMl(); // 500.0 * 0.04 = 20.0
 
         // Act
         double valorPagado = maquina.servirCerveza(cantidadAServir);
@@ -116,15 +116,15 @@ public class TestServirCervezaAI {
     @DisplayName("Debe servir correctamente usando el constructor de 3 parámetros (Capacidad por defecto)")
     public void testServirCervezaConstructorTresParametros() {
         // Arrange
-        // Usamos el constructor de 3 parámetros[cite: 1]
+        // Usamos el constructor de 3 parámetros
         Maquina maquina = new Maquina("017", "Pilsner", "Cerveza Pilsner clásica", 0.03);
         
-        // Recargamos cerveza[cite: 1]
+        // Recargamos cerveza
         maquina.recargarCerveza(1500.0);
-        double cantidadInicial = maquina.getCantidadActual(); // 1500.0[cite: 1]
+        double cantidadInicial = maquina.getCantidadActual(); // 1500.0
         
         double cantidadAServir = 400.0;
-        double precioEsperado = cantidadAServir * maquina.getPrecioPorMl(); // 400.0 * 0.03 = 12.0[cite: 1]
+        double precioEsperado = cantidadAServir * maquina.getPrecioPorMl(); // 400.0 * 0.03 = 12.0
 
         // Act
         double valorPagado = maquina.servirCerveza(cantidadAServir);
