@@ -20,7 +20,7 @@ public class TestServirCervezaAI {
     public void testServirCervezaSuficienteConstructorCompleto() {
         // Arrange (Preparación)
         // Usamos el constructor de 4 parámetros
-        Maquina maquina = new Maquina("IPA", "Cerveza artesanal amarga", 0.05, 5000.0);
+        Maquina maquina = new Maquina("010", "IPA", "Cerveza artesanal amarga", 0.05, 5000.0);
         
         // Cargamos cerveza en la máquina usando los métodos disponibles
         maquina.llenarMaquina(); // Capacidad actual pasa a ser 4900.0 (5000.0 - 100)
@@ -44,7 +44,7 @@ public class TestServirCervezaAI {
     @DisplayName("No debe servir nada si la cantidad a servir es mayor a la cantidad disponible")
     public void testServirCervezaInsuficiente() {
         // Arrange
-        Maquina maquina = new Maquina("Stout", "Cerveza negra", 0.08, 2000.0);
+        Maquina maquina = new Maquina("011", "Stout", "Cerveza negra", 0.08, 2000.0);
         
         // Llenamos la máquina (queda con 1900.0 ml)[cite: 1]
         maquina.llenarMaquina(); 
@@ -69,7 +69,7 @@ public class TestServirCervezaAI {
     public void testServirCervezaMaquinaVacia() {
         // Arrange
         // Al instanciar, la máquina inicia con cantidadActual = 0[cite: 1]
-        Maquina maquina = new Maquina("Red Ale", "Cerveza roja", 0.06, 3000.0);
+        Maquina maquina = new Maquina("014", "Red Ale", "Cerveza roja", 0.06, 3000.0);
         double cantidadInicial = maquina.getCantidadActual(); // 0.0[cite: 1]
         
         double cantidadAServir = 300.0;
@@ -89,7 +89,7 @@ public class TestServirCervezaAI {
     @DisplayName("Debe permitir servir exactamente toda la cantidad disponible en la máquina")
     public void testServirCervezaExactamenteLaCantidadDisponible() {
         // Arrange
-        Maquina maquina = new Maquina("Golden", "Cerveza rubia", 0.04, 1000.0);
+        Maquina maquina = new Maquina("015", "Golden", "Cerveza rubia", 0.04, 1000.0);
         
         // Agregamos cerveza utilizando recargarCerveza[cite: 1]
         maquina.recargarCerveza(500.0); // La cantidad disponible actual es 500.0[cite: 1]
@@ -117,7 +117,7 @@ public class TestServirCervezaAI {
     public void testServirCervezaConstructorTresParametros() {
         // Arrange
         // Usamos el constructor de 3 parámetros[cite: 1]
-        Maquina maquina = new Maquina("Pilsner", "Cerveza Pilsner clásica", 0.03);
+        Maquina maquina = new Maquina("017", "Pilsner", "Cerveza Pilsner clásica", 0.03);
         
         // Recargamos cerveza[cite: 1]
         maquina.recargarCerveza(1500.0);
