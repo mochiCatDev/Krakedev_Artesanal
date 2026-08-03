@@ -7,6 +7,24 @@ public class Maquina {
 	private double capacidadMaxima;
 	private double cantidadActual;
 
+	// === CONTRUCTORES ===
+
+	public Maquina(String nombreCerveza, String descripcion, double precioPorMl, double capacidadMaxima) {
+		this.nombreCerveza = nombreCerveza;
+		this.descripcion = descripcion;
+		this.precioPorMl = precioPorMl;
+		this.capacidadMaxima = capacidadMaxima;
+		this.cantidadActual = 0;
+	}
+
+	public Maquina(String nombreCerveza, String descripcion, double precioPorMl) {
+		this.nombreCerveza = nombreCerveza;
+		this.descripcion = descripcion;
+		this.precioPorMl = precioPorMl;
+		this.capacidadMaxima = 10000;
+		this.cantidadActual = 0;
+	}
+
 	// === GETTERS ===
 
 	public String getNombreCerveza() {
