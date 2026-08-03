@@ -77,7 +77,7 @@ public class Maquina {
 	}
 	
 	public boolean recargarCerveza(double cantidad) {
-		if(cantidadActual + cantidad > capacidadMaxima - 100) {
+		if(cantidadActual + cantidad < capacidadMaxima - 100) {
 			cantidadActual += cantidad;
 			return true;
 		} else {
