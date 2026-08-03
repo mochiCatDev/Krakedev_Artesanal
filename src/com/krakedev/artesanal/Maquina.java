@@ -1,6 +1,7 @@
 package com.krakedev.artesanal;
 
 public class Maquina {
+	private String codigo;
 	private String nombreCerveza;
 	private String descripcion;
 	private double precioPorMl;
@@ -9,7 +10,8 @@ public class Maquina {
 
 	// === CONTRUCTORES ===
 
-	public Maquina(String nombreCerveza, String descripcion, double precioPorMl, double capacidadMaxima) {
+	public Maquina(String codigo, String nombreCerveza, String descripcion, double precioPorMl, double capacidadMaxima) {
+		this.codigo = codigo;
 		this.nombreCerveza = nombreCerveza;
 		this.descripcion = descripcion;
 		this.precioPorMl = precioPorMl;
@@ -17,7 +19,8 @@ public class Maquina {
 		this.cantidadActual = 0;
 	}
 
-	public Maquina(String nombreCerveza, String descripcion, double precioPorMl) {
+	public Maquina(String codigo, String nombreCerveza, String descripcion, double precioPorMl) {
+		this.codigo = codigo;
 		this.nombreCerveza = nombreCerveza;
 		this.descripcion = descripcion;
 		this.precioPorMl = precioPorMl;
@@ -26,6 +29,10 @@ public class Maquina {
 	}
 
 	// === GETTERS ===
+
+	public String getCodigo() {
+		return codigo;
+	}
 
 	public String getNombreCerveza() {
 		return nombreCerveza;
@@ -65,28 +72,29 @@ public class Maquina {
 
 	public void imprimir() {
 		String mensaje;
-		mensaje = "Nombre Cerveza: " + nombreCerveza + ", Descripción: " + descripcion + ", Precio por ML: "
-				+ precioPorMl + ", Capacidad Máxima: " + capacidadMaxima + ", Cantidad Actual: " + cantidadActual;
+		mensaje = "Codigo: " + codigo + ", Nombre Cerveza: " + nombreCerveza + ", Descripción: " + descripcion
+				+ ", Precio por ML: " + precioPorMl + ", Capacidad Máxima: " + capacidadMaxima + ", Cantidad Actual: "
+				+ cantidadActual;
 		System.out.println(mensaje);
 	}
-	
+
 	// === MÉTODOS ===
-	
+
 	public void llenarMaquina() {
-		cantidadActual = capacidadMaxima - 100;
+		cantidadActual = capacidadMaxima - 200;
 	}
-	
+
 	public boolean recargarCerveza(double cantidad) {
-		if(cantidadActual + cantidad < capacidadMaxima - 100) {
+		if (cantidadActual + cantidad < capacidadMaxima - 200) {
 			cantidadActual += cantidad;
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	public double servirCerveza(double cantidad) {
-		if(cantidadActual >= cantidad) {
+		if (cantidadActual >= cantidad) {
 			cantidadActual -= cantidad;
 			double valor;
 			valor = cantidad * precioPorMl;

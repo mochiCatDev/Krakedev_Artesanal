@@ -4,7 +4,7 @@ import com.krakedev.artesanal.Maquina;
 
 public class TestLlenar {
 	public static void main(String[] args) {
-		Maquina rubia = new Maquina("Pilsener", "Cerveza fría", 0.02, 80000);
+		Maquina rubia = new Maquina("002", "Pilsener", "Cerveza fría", 0.02, 80000);
 		System.out.println("========= MAQUINA RUBIA =========");
 		System.out.println("-> Estado Por Defecto");
 		rubia.imprimir();
@@ -12,7 +12,7 @@ public class TestLlenar {
 		rubia.llenarMaquina();
 		rubia.imprimir();
 
-		Maquina negra = new Maquina("Club", "Cerveza buena", 0.03);
+		Maquina negra = new Maquina("003", "Club", "Cerveza buena", 0.03);
 		System.out.println("========= MAQUINA NEGRA =========");
 		System.out.println("-> Estado Por Defecto");
 		negra.imprimir();

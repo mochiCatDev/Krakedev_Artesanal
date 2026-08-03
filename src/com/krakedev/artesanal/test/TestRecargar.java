@@ -5,7 +5,7 @@ import com.krakedev.artesanal.Maquina;
 public class TestRecargar {
 	public static void main(String[] args) {
 		boolean resultado;
-		Maquina rubia = new Maquina("Pilsener", "Cerveza fría", 0.02, 8000);
+		Maquina rubia = new Maquina("004", "Pilsener", "Cerveza fría", 0.02, 8000);
 		
 		System.out.println("-> Estado Inicial");
 		rubia.imprimir();
