@@ -4,6 +4,10 @@ public class Negocio {
 	private String nombre;
 	private Maquina maquinaA;
 
+	public Negocio() {
+		
+	}
+
 	public Negocio(String nombre, Maquina maquinaA) {
 		this.nombre = nombre;
 		this.maquinaA = maquinaA;
