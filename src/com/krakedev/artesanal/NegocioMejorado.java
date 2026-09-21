@@ -36,4 +36,16 @@ public class NegocioMejorado {
     		}
     	}
     }
+
+	public Maquina recuperarMaquina(String codigo) {
+		if (codigo == null) {
+			return null;
+		}
+		for (Maquina m : maquinas) {
+			if (m != null && codigo.equals(m.getCodigo())) {
+				return m;
+			}
+		}
+		return null;
+	}
 }

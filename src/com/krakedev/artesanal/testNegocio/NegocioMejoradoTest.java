@@ -2,6 +2,7 @@ package com.krakedev.artesanal.testNegocio;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -48,5 +49,23 @@ public class NegocioMejoradoTest {
 		// 3. Verificamos que la máquina ya no esté vacía
 		Maquina m = negocio.getMaquinas().get(0);
 		assertTrue(m.getCantidadActual() > 0);
+	}
+	
+	@Test
+	public void testRecuperarMaquina() {
+		NegocioMejorado negocio = new NegocioMejorado();
+
+		// Agregamos una máquina previa para probar la búsqueda
+		negocio.agregarMaquina("Pilsen", "Cerveza rubia", 0.03);
+		String codigoGenerado = negocio.getMaquinas().get(0).getCodigo();
+
+		// 1. Caso éxito: Debe retornar la máquina existente
+		Maquina encontrada = negocio.recuperarMaquina(codigoGenerado);
+		assertNotNull(encontrada);
+		assertEquals("Pilsen", encontrada.getNombreCerveza());
+
+		// 2. Caso fallo: Código no existente debe retornar null
+		Maquina noExistente = negocio.recuperarMaquina("M-999");
+		assertNull(noExistente);
 	}
 }
