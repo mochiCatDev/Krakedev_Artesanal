@@ -21,4 +21,10 @@ public class NegocioMejorado {
         int numeroAleatorio = (int) (Math.random() * 100) + 1;
         return "M-" + numeroAleatorio;
     }
+    
+    public void agregarMaquina(String nombreCerveza, String descripcion, double precioPorMl) {
+        String codigoGenerado = generarCodigo();
+        Maquina nuevaMaquina = new Maquina(codigoGenerado, nombreCerveza, descripcion, precioPorMl);
+        maquinas.add(nuevaMaquina);
+    }
 }
