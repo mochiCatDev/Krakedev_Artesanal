@@ -22,10 +22,18 @@ public class NegocioMejorado {
 		return "M-" + numeroAleatorio;
 	}
 
-	public void agregarMaquina(String nombreCerveza, String descripcion, double precioPorMl) {
-    	String codigoGenerado = generarCodigo();
+	public boolean agregarMaquina(String nombreCerveza, String descripcion, double precioPorMl) {
+		for (Maquina c : maquinas) {
+			if (c != null && c.getNombreCerveza().equals(nombreCerveza)) {
+				return false;
+			}
+		}
+
+		String codigoGenerado = generarCodigo();
         Maquina nuevaMaquina = new Maquina(codigoGenerado, nombreCerveza, descripcion, precioPorMl);
         maquinas.add(nuevaMaquina);
+        
+        return true;
     }
 	
 	public void cargarMaquinas() {

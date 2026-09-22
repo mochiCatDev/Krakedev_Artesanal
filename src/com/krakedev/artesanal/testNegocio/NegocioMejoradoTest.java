@@ -1,6 +1,7 @@
 package com.krakedev.artesanal.testNegocio;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -67,5 +68,34 @@ public class NegocioMejoradoTest {
 		// 2. Caso fallo: Código no existente debe retornar null
 		Maquina noExistente = negocio.recuperarMaquina("M-999");
 		assertNull(noExistente);
+	}
+	
+	@Test
+	public void testAgregarMaquinaUnica() {
+		NegocioMejorado negocio = new NegocioMejorado();
+
+		// 1. Agregamos una máquina por primera vez (debe devolver true)
+		boolean resultado = negocio.agregarMaquina("Pilsener", "Cerveza rubia", 2.50);
+
+		// Validamos la aserción con JUnit
+		assertTrue(resultado);
+		assertEquals(1, negocio.getMaquinas().size());
+	}
+
+	@Test
+	public void testAgregarMaquinaDuplicada() {
+		NegocioMejorado negocio = new NegocioMejorado();
+
+		// 1. Agregamos la primera cerveza
+		negocio.agregarMaquina("Pilsener", "Cerveza rubia", 2.50);
+
+		// 2. Intentamos agregar la MISMA cerveza (debe devolver false por duplicado)
+		boolean resultadoDuplicado = negocio.agregarMaquina("Pilsener", "Otra descripción", 3.00);
+		
+		// Validamos la aserción con JUnit: esperamos un 'false'
+		assertFalse(resultadoDuplicado);
+
+		// Verificamos que la lista siga teniendo solo 1 elemento
+		assertEquals(1, negocio.getMaquinas().size());
 	}
 }
