@@ -107,4 +107,14 @@ public class NegocioMejorado {
 			registrarConsumo(clienteEncontrado, valorServido);
 		}
 	}
+	
+	public double consultarValorVendido() {
+		double totalVendido = 0;
+		for (Cliente c : clientes) {
+			if (c != null) {
+				totalVendido += c.getTotalConsumido();
+			}
+		}
+		return totalVendido;
+	}
 }	
