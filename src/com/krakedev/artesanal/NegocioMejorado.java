@@ -66,4 +66,28 @@ public class NegocioMejorado {
 		ultimoCodigo++;
 		clientes.add(nuevoCliente);
 	}
+	
+	public Cliente buscarClientePorCedula(String cedula) {
+		if(cedula == null) {
+			return null;
+		}
+		for (Cliente c : clientes) {
+			if (c != null && cedula.equals(c.getCedula())) {
+				return c;
+			}
+		}
+		return null;
+	}
+	
+	public Cliente buscarClientePorCodigo(String codigo) {
+		if(codigo == null) {
+			return null;
+		}
+		for (Cliente c : clientes) {
+			if (c != null && codigo.equals(c.getCodigo())) {
+				return c;
+			}
+		}
+		return null;
+	}
 }
